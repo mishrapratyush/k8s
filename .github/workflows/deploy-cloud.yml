@@ -1,18 +1,24 @@
 name: Containerize to ACR
 
-# on:
-#   push:
-#     branches: [main]
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'docImages/**'
   
-workflow_dispatch:
+  workflow_dispatch:
+
+env:
+  SERVR: producton
 
 jobs:
   containerize:
+    name: containerize the app
     runs-on: ubuntu-latest
-
+  
   steps:
-    #checkout
-    -uses: actions/checkout@v2
+    - name: checkout code  #checkout
+      uses: actions/checkout@v2
 
     #connect to ACR
     # -uses: ams/acr-task-github-action@v2
