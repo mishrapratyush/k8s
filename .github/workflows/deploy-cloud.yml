@@ -15,11 +15,35 @@ jobs:
   containerize:
     name: containerize the app
     runs-on: ubuntu-latest
-  
-  steps:
-    - name: checkout code  #checkout
-      uses: actions/checkout@v2
-
-    #connect to ACR
-    # -uses: ams/acr-task-github-action@v2
-    #   with:
+    
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      
+      - name: acr
+        uses: ams0/acr-task-github-action@v2
+        with:
+          # Service Principal with Contributor role on the ACR
+          service_principal: "TBD"
+          # Service Principal password
+          service_principal_password: "TBD"
+          # Azure Container Registry tenant
+          tenant: "TBD"
+          # The name of the ACR, minus the .azurecr.io
+          registry: "TBD"
+          # Repository to use
+          repository: "TBD"
+          # Github access token for private repositories
+          git_access_token: "TBD" 
+          # Docker image name
+          image: "TBD" # optional
+          # Docker image tag, default to the commit SHA
+          tag:  "TBD" # optional
+          # Branch to build from, defaults to master
+          branch: "TBD" # optional
+          # The folder in the Github repo that holds the source
+          folder: "TBD" 
+          # The location of the Dockerfile; defaults to ./Dockerfile
+          dockerfile: "TBD" # optional
+          # JSON specifying key=value pairs as as Docker build arguments
+          build_args: "TBD" # optional
