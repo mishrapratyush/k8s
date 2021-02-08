@@ -24,26 +24,26 @@ jobs:
         uses: ams0/acr-task-github-action@v2
         with:
           # Service Principal with Contributor role on the ACR
-          service_principal: "TBD"
+          service_principal: ${{ secrets.SERVICE_PRINCIPAL }}
           # Service Principal password
-          service_principal_password: "TBD"
+          service_principal_password: ${{ secrets.SERVICE_PRINCIPAL_PASSWORD }}
           # Azure Container Registry tenant
-          tenant: "TBD"
+          tenant: ${{ secrets.tenant }}
           # The name of the ACR, minus the .azurecr.io
-          registry: "TBD"
+          registry: ${{ registry }}
           # Repository to use
-          repository: "TBD"
+          repository: k8s
           # Github access token for private repositories
-          git_access_token: "TBD" 
+          # git_access_token: "TBD" 
           # Docker image name
-          image: "TBD" # optional
+          # image: # optional
           # Docker image tag, default to the commit SHA
-          tag:  "TBD" # optional
+          # tag:  # optional
           # Branch to build from, defaults to master
-          branch: "TBD" # optional
+          branch: main # optional
           # The folder in the Github repo that holds the source
-          folder: "TBD" 
+          # folder: "TBD" 
           # The location of the Dockerfile; defaults to ./Dockerfile
-          dockerfile: "TBD" # optional
+          dockerfile: ../../Dockerfile # optional
           # JSON specifying key=value pairs as as Docker build arguments
-          build_args: "TBD" # optional
+          # build_args: "TBD" # optional
