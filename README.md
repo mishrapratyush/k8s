@@ -51,3 +51,23 @@ CMD ["gunicorn", "--bind", "0.0.0.0:5000", "api.app:app"]
 ```
 
 Follow this tutorial to add support for docker to your app: https://code.visualstudio.com/docs/containers/quickstart-python
+
+
+## Running app on local Kubernetes
+1. Create a deployment manifest: (dev-k8s.yml)
+2. Run following Kubectl commands:
+    1.  kubectl apply -f .\dev-k8s.yml
+    2.  kubectl get deployments
+    3.  kubectl get pods
+    4.  kubectl describe pod messageapi-<id>
+    If you see image not found error then edit the deployment
+    5. kubectl edit deployment messageapi
+    6. update the notepad: set imagePullPolicy to "IfNotPresent"
+    7. check rollout status - 
+
+3. local k8s web dashboard: http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+    1.  if it doesnt open run kubectl proxy
+    See following url for more details: https://kubernetes.io/blog/2020/05/21/wsl-docker-kubernetes-on-the-windows-desktop/
+    2.  **NOTE:** You may have to run kubectl apply -f dashboard-adminuser.yml file to create a local admin user for the dashboard that will needed to authenticate to the dashboard
+
+4. generate token: kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token | base64decode}}"
