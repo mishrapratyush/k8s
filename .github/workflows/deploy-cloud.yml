@@ -28,9 +28,9 @@ jobs:
           # Service Principal password
           service_principal_password: ${{ secrets.SERVICE_PRINCIPAL_PASSWORD }}
           # Azure Container Registry tenant
-          tenant: ${{ secrets.tenant }}
+          tenant: ${{ secrets.TENANT }}
           # The name of the ACR, minus the .azurecr.io
-          registry: ${{ registry }}
+          registry: ${{ secrets.REGISTRY }}
           # Repository to use
           repository: k8s
           # Github access token for private repositories
