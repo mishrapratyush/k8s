@@ -34,7 +34,7 @@ jobs:
           # Repository to use
           repository: k8s
           # Github access token for private repositories
-          # git_access_token: "TBD" 
+          git_access_token: ${{ secrets.GET_ACCESS_TOKEN }} 
           # Docker image name
           image: message_api # optional
           # Docker image tag, default to the commit SHA
