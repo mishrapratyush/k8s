@@ -36,9 +36,9 @@ jobs:
           # Github access token for private repositories
           # git_access_token: "TBD" 
           # Docker image name
-          # image: # optional
+          image: message_api # optional
           # Docker image tag, default to the commit SHA
-          # tag:  # optional
+          tag:  ${{ github.run_id }} # optional
           # Branch to build from, defaults to master
           branch: main # optional
           # The folder in the Github repo that holds the source
