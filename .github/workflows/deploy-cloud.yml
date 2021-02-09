@@ -1,0 +1,49 @@
+name: Containerize to ACR
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'docImages/**'
+  
+  workflow_dispatch:
+
+env:
+  SERVR: producton
+
+jobs:
+  containerize:
+    name: containerize the app
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      
+      - name: acr
+        uses: ams0/acr-task-github-action@v2
+        with:
+          # Service Principal with Contributor role on the ACR
+          service_principal: ${{ secrets.SERVICE_PRINCIPAL }}
+          # Service Principal password
+          service_principal_password: ${{ secrets.SERVICE_PRINCIPAL_PASSWORD }}
+          # Azure Container Registry tenant
+          tenant: ${{ secrets.tenant }}
+          # The name of the ACR, minus the .azurecr.io
+          registry: ${{ registry }}
+          # Repository to use
+          repository: k8s
+          # Github access token for private repositories
+          # git_access_token: "TBD" 
+          # Docker image name
+          # image: # optional
+          # Docker image tag, default to the commit SHA
+          # tag:  # optional
+          # Branch to build from, defaults to master
+          branch: main # optional
+          # The folder in the Github repo that holds the source
+          # folder: "TBD" 
+          # The location of the Dockerfile; defaults to ./Dockerfile
+          dockerfile: ../../Dockerfile # optional
+          # JSON specifying key=value pairs as as Docker build arguments
+          # build_args: "TBD" # optional
