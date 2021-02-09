@@ -32,7 +32,7 @@ jobs:
           # The name of the ACR, minus the .azurecr.io
           registry: ${{ secrets.REGISTRY }}
           # Repository to use
-          repository: k8s
+          repository: https://github.com/mishrapratyush/k8s.git
           # Github access token for private repositories
           git_access_token: ${{ secrets.GET_ACCESS_TOKEN }} 
           # Docker image name
