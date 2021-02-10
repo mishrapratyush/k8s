@@ -44,6 +44,6 @@ jobs:
           # The folder in the Github repo that holds the source
           # folder: "TBD" 
           # The location of the Dockerfile; defaults to ./Dockerfile
-          dockerfile: ../../Dockerfile # optional
+          dockerfile: Dockerfile # optional
           # JSON specifying key=value pairs as as Docker build arguments
           # build_args: "TBD" # optional
