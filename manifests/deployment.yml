@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "k8spmishra-b3c4"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "k8spmishra-b3c4"
+  template:
+    metadata:
+      labels:
+        app: "k8spmishra-b3c4"
+    spec:
+      containers:
+        - name: "k8spmishra-b3c4"
+          image: "pmishractrrgy.azurecr.io/k8spmishra"
+          ports:
+          - containerPort: 5000
