@@ -26,7 +26,7 @@ variable "location" {
 
 variable "cog_svc_name" {
     type = string
-    default = "pmishra-cog-svc-centralus"
+    default = "<<account name>>"
 }
 
 #################################
