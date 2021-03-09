@@ -1,0 +1,5 @@
+# need to run the following commands to import existing resources
+
+terraform import azurerm_resource_group.rg /subscriptions/a71e73e0-6235-4a56-ba1b-f21ef82062dd/resourceGroups/pmishra
+
+terraform import azurerm_cognitive_account.cogsvc /subscriptions/a71e73e0-6235-4a56-ba1b-f21ef82062dd/resourceGroups/pmishra/providers/Microsoft.CognitiveServices/accounts/pmishra-cog-svc-centralus
