@@ -15,12 +15,12 @@ terraform {
 #################################
 variable "subscription_id" {
     type = string
-    default = "a71e73e0-6235-4a56-ba1b-f21ef82062dd"
+    default = "<<subscription id>>"
 }
 
 variable "resource_group_name" {
     type = string
-    default = "pmishra"
+    default = "<<rg name>>"
 }
 
 variable "location" {
@@ -30,7 +30,7 @@ variable "location" {
 
 variable "cog_svc_name" {
     type = string
-    default = "pmishra-cog-svc-centralus"
+    default = "<<account name>>"
 }
 
 variable "cog_svc_location" {
